@@ -57,7 +57,7 @@ begin
 				if bitCount = 7 then					--When the first byte has been read
 					if inputBuff(6 downto 0) = thisDeviceAddr then	--For this device address
 						byteCount <= 1;				--Increment the byte count
-						writeNotRead <= not sdaReg(1)		--Load read/write opcode
+						writeNotRead <= not sdaReg(1);		--Load read/write opcode
 						readData <= not sdaReg(1); 		-- If opcode is read load first byte of //ell data
 						output <= '0';				-- Acknowledge first byte of serial data read
 					end if;	
@@ -68,10 +68,10 @@ begin
 					else
 						output <= writeNotRead or regDataIn(7);	--Generate first bit of output on read cycles
 					end if;
-				elsif bitCount > 8 and bitCount < 16 the			--For All subsequent bits
+				elsif bitCount > 8 and bitCount < 16 then			--For All subsequent bits
 					output <= writeNotRead or regDataIn(15-bitCount); 	--Generate output data on read cycles
 				elsif bitCount = 16 then 						--When a byte of data has been read 
-					if writeNotRead = '1' the					--And this is a write cycle
+					if writeNotRead = '1' then					--And this is a write cycle
 						if byteCount = 1 then 					--And this is the 2nd byte of data
 							regAddrSig <= inputBuff(6 downto 0) & sdaReg(1);--Get the register Address
 							byteCount <= 2;  				--increment byte count
@@ -83,7 +83,7 @@ begin
 						if byteCount > 2 then 					--if this is a multiple byte write sequence			
 							regAddrSig <= regAddrSig + 1; 			--increment the register address
 						end if;
-						output <= '0'			 			--Acknowledge byte has been read
+						output <= '0';			 			--Acknowledge byte has been read
 					else					--If this is a read cycle
 						regAddrSig <= regAddrSig + 1; 	--Increment register address for each byte read
 						readData <= '0'; 		--Load the next data byte
