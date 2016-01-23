@@ -1,4 +1,4 @@
-ET "fpgaClk" LOC = "P85" | IOSTANDARD = LVTTL;
+NET "fpgaClk" LOC = "P85" | IOSTANDARD = LVTTL;
 NET "sck" LOC = "P97" | IOSTANDARD = LVTTL;
 NET "sda" LOC = "P98" | IOSTANDARD = LVTTL;
 
