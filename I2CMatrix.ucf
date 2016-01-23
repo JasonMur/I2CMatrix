@@ -1,0 +1,10 @@
+ET "fpgaClk" LOC = "P85" | IOSTANDARD = LVTTL;
+NET "sck" LOC = "P97" | IOSTANDARD = LVTTL;
+NET "sda" LOC = "P98" | IOSTANDARD = LVTTL;
+
+NET "sckTest" LOC = "P5" | IOSTANDARD = LVTTL; #Pmod<0>
+NET "sdaTest" LOC = "P2" | IOSTANDARD = LVTTL; #Pmod<1>
+
+NET "MDIO" LOC = "P1" | IOSTANDARD = LVTTL; #Pmod<2>
+NET "MDC" LOC = "P16" | IOSTANDARD = LVTTL; #Pmod<3>
+NET "MDIOLoad" LOC = "P88" | IOSTANDARD = LVTTL; #Pmod<4>
