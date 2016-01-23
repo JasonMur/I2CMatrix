@@ -138,22 +138,22 @@ dataToWrite = [0,0,0,0,0,0,0,0]
 bus = smbus.SMBus(1)
 
 def i2cWrite(devAddr, regAddr, values):
-  bus.write_i2c_block_data(devAddr, regAddr, values)
+	bus.write_i2c_block_data(devAddr, regAddr, values)
 	print 'Device ', devAddr, ' Reg :', regAddr, ' Data : ', values
-  return -1
+	return -1
 
 def i2cRead(devAddr, regAddr):
-    values = bus.read_byte_data(devAddr, regAddr)
-    return values
+	values = bus.read_byte_data(devAddr, regAddr)
+	return values
 
 while True:
-    i2cWrite(0x62, 0x09, [0x00, 0x08, 0x07, 0x01])
-    time.sleep(0.1)
-    charsToDisplay = raw_input('Enter a sentence to be displayed: ')
-    time.sleep(0.1)
-    for letter in charsToDisplay:     # First Example
-      asciiVal=ord(letter)
-      for row in range(0,8):
-	dataToWrite[row] = int(amstradCharMap[asciiVal][row])
-	i2cWrite(0x62,0x01,dataToWrite)					 				
+	i2cWrite(0x62, 0x09, [0x00, 0x08, 0x07, 0x01])
+	time.sleep(0.1)
+	charsToDisplay = raw_input('Enter a sentence to be displayed: ')
+	time.sleep(0.1)
+	for letter in charsToDisplay:
+		asciiVal=ord(letter)
+		for row in range(0,8):
+			dataToWrite[row] = int(amstradCharMap[asciiVal][row])
+			i2cWrite(0x62,0x01,dataToWrite)					 				
 	    
