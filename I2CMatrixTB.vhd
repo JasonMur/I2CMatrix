@@ -4,8 +4,8 @@
 --
 -- Create Date:   12:36:38 01/15/2016
 -- Design Name:   
--- Module Name:   /home/jason/Workbook/FPGA/logipi/I2CSlave/I2CMatrixTB.vhd
--- Project Name:  I2CSlave
+-- Module Name:   
+-- Project Name:  I2CMatrix
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
