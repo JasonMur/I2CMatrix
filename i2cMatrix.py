@@ -154,6 +154,6 @@ while True:
     for letter in charsToDisplay:     # First Example
       asciiVal=ord(letter)
       for row in range(0,8):
-		    dataToWrite[row] = int(amstradCharMap[asciiVal][row])
-	      i2cWrite(0x62,0x01,dataToWrite)					 				
+	dataToWrite[row] = int(amstradCharMap[asciiVal][row])
+	i2cWrite(0x62,0x01,dataToWrite)					 				
 	    
